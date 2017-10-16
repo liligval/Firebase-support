@@ -1,20 +1,171 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{title}}!
+    Welcome to my project!
   </h1>
-  <img width="300" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class='container-fluid p-10'>
+  <div class='row'>
+    <div class='col-6'>
+      <tabset>
+        <tab heading='Chart'>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th> Country </th>
+                <th> View </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let charts of data.chart'>
+                <td class='text-xs-center'>
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="btn btn-primary btn-sm dropdown-toggle">
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                          <span class="oi oi-pencil"></span>Edit</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                            <i class='fa fa-trash'></i>Delete</a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+                <td>{{charts.country}}</td>
+                <td>{{charts.view}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </tab>
+        <tab heading='Gallery'>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th> Name </th>
+                <th> Url </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let gall of data.gallery'>
+                <td class='text-xs-center'>
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="btn btn-primary btn-sm dropdown-toggle">
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                          <i class='fa fa-file'></i>Edit</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                            <i class='fa fa-trash'></i>Delete</a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+                <td>{{gall.name}}</td>
+                <td>{{gall.url}}</td>
+              </tr>
+            </tbody>
+          </table>    
+        </tab>
+        <tab heading='Profile'>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th> About Me </th>
+                <th> Company </th>
+                <th> Email </th>
+                <th> Follower </th>
+                <th> Following </th>
+                <th> Name </th>
+                <th> Phone </th>
+                <th> Position </th>
+                <th> Post </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let profiles of data.profile'>
+                <td class='text-xs-center'>
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="btn btn-primary btn-sm dropdown-toggle">
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                          <i class='fa fa-file'></i>Edit</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                            <i class='fa fa-trash'></i>Delete</a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+                <td>{{profiles.aboutMe}}</td>
+                <td>{{profiles.company}}</td>
+                <td>{{profiles.email}}</td>
+                <td>{{profiles.follower}}</td>
+                <td>{{profiles.following}}</td>
+                <td>{{profiles.name}}</td>
+                <td>{{profiles.phone}}</td>
+                <td>{{profiles.position}}</td>
+                <td>{{profiles.post}}</td>
+              </tr>
+            </tbody>
+          </table>  
+        </tab>
+        <tab heading='Category'>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th></th>
+                <th> Description </th>
+                <th> Name </th>
+                <th> Type </th>
+                <th> Image Background </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let categories of data.category'>
+                <td class='text-xs-center'>
+                  <div class="btn-group" dropdown>
+                    <button dropdownToggle type="button" class="btn btn-primary btn-sm dropdown-toggle">
+                      <span class="caret"></span>
+                    </button>
+                    <ul *dropdownMenu class="dropdown-menu" role="menu">
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                          <i class='fa fa-file'></i>Edit</a>
+                      </li>
+                      <li role="menuitem">
+                        <a class="dropdown-item" href="#">
+                            <i class='fa fa-trash'></i>Delete</a>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+                <td>{{categories.description}}</td>
+                <td>{{categories.name}}</td>
+                <td>{{categories.type}}</td>
+                <td>{{categories.imgBg}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </tab>
+      </tabset> 
+    </div>
+  </div> 
+</div>
+
+
 
